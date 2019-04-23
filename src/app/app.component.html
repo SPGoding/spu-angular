@@ -1,7 +1,7 @@
 <mat-toolbar title="Spu Performs Updating">SPU</mat-toolbar>
 
-<mat-button-toggle-group name="sourceVersions" aria-label="Source Version">
-    <mat-button-toggle *ngFor="let version of sourceVers" value="version" [checked]="version === sourceVer"
+<mat-button-toggle-group name="sources" aria-label="Source Versions">
+    <mat-button-toggle *ngFor="let version of sourceVers" value="version" [checked]="version === source"
         (click)="changeSource(version)">
         1.{{version}}
     </mat-button-toggle>
@@ -9,12 +9,13 @@
 
 <button mat-raised-button (click)="update()">Update</button>
 
-<mat-button-toggle-group name="targets" aria-label="Targets">
-    <mat-button-toggle *ngFor="let version of availableTargetVers" value="version" [checked]="version === targetVer"
+<mat-button-toggle-group name="targets" aria-label="Target Versions">
+    <mat-button-toggle *ngFor="let version of availableTargets" value="version" [checked]="version === target"
         (click)="changeTarget(version)">
         1.{{version}}
     </mat-button-toggle>
-    <mat-button-toggle *ngFor="let version of disabledTargetVers" value="version" disabled>
+    <mat-button-toggle *ngFor="let version of disabledTargets" value="version" disabled>
         1.{{version}}
     </mat-button-toggle>
 </mat-button-toggle-group>
+

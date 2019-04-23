@@ -16,6 +16,9 @@ export class AppComponent {
     public source = 13
     public target = 14
 
+    public input = ''
+    public output = ''
+
     public changeSource(version: number) {
         this.source = version
         this.availableTargets = this.targets.filter(v => v > version)
@@ -31,6 +34,6 @@ export class AppComponent {
     }
 
     public update() {
-        alert('fuck')
+        spu.update(this.input.split(/\n/g), this.source, this.target)
     }
 }
