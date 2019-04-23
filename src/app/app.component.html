@@ -1,7 +1,7 @@
 <mat-toolbar title="Spu Performs Updating">SPU</mat-toolbar>
 
 <mat-button-toggle-group name="sources" aria-label="Source Versions">
-    <mat-button-toggle *ngFor="let version of sourceVers" value="version" [checked]="version === source"
+    <mat-button-toggle *ngFor="let version of sources" [value]="version" [checked]="version === source"
         (click)="changeSource(version)">
         1.{{version}}
     </mat-button-toggle>
@@ -10,12 +10,18 @@
 <button mat-raised-button (click)="update()">Update</button>
 
 <mat-button-toggle-group name="targets" aria-label="Target Versions">
-    <mat-button-toggle *ngFor="let version of availableTargets" value="version" [checked]="version === target"
+    <mat-button-toggle *ngFor="let version of availableTargets" [value]="version" [checked]="version === target"
         (click)="changeTarget(version)">
         1.{{version}}
     </mat-button-toggle>
-    <mat-button-toggle *ngFor="let version of disabledTargets" value="version" disabled>
+    <mat-button-toggle *ngFor="let version of disabledTargets" [value]="version" disabled>
         1.{{version}}
     </mat-button-toggle>
 </mat-button-toggle-group>
-
+<br />
+<textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="12"
+    placeholder="Input command(s)" [(ngModel)]="input"></textarea>
+<textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="12" placeholder="Output command(s)"
+    readonly [ngModel]="output"></textarea>
+<br />
+{{source}} -> {{target}}
