@@ -7,7 +7,7 @@ import * as spu from 'spu'
     templateUrl: './update_info.component.html'
 })
 export class UpdateInfoComponent {
-
+    
 }
 
 @Component({
