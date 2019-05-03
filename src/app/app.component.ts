@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core'
 import { MatSnackBar, MAT_SNACK_BAR_DATA, MatDialog } from '@angular/material'
 import * as spu from 'spu'
-import { AboutDialogComponent } from './about-dialog/about-dialog.component';
+import { AboutDialogComponent } from './about-dialog/about-dialog.component'
 
 @Component({
     selector: 'app-logs-snack-bar',
@@ -50,7 +50,6 @@ export class AppComponent {
 
         this.snackBar.openFromComponent(LogsSnackBarComponent,
             { data: result.logs, duration: result.logs.join(' ').length * 50 })
-        console.log(result.logs)
     }
 
     public openAboutDialog() {

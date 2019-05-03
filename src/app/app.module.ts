@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {
     MatButtonModule, MatButtonToggleModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule,
     MatMenuModule, MatSnackBarModule, MatToolbarModule
-} from '@angular/material';
+} from '@angular/material'
 import { AboutDialogComponent } from './about-dialog/about-dialog.component'
 
 @NgModule({
