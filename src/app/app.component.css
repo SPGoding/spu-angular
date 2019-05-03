@@ -1,0 +1,16 @@
+mat-card {
+    max-width: 75%;
+    margin: 2em auto;
+    text-align: center;
+}
+
+textarea {
+    margin: 8px;
+    margin-bottom: 0;
+    min-width: 40%;
+    max-width: 80%;
+}
+
+.update-button {
+    margin: 8px;
+}

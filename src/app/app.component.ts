@@ -1,13 +1,14 @@
-import { Component } from '@angular/core'
-import { MatSnackBar } from '@angular/material'
+import { Component, Inject } from '@angular/core'
+import { MatSnackBar, MAT_SNACK_BAR_DATA, MatDialog } from '@angular/material'
 import * as spu from 'spu'
+import { AboutDialogComponent } from './about-dialog/about-dialog.component';
 
 @Component({
-    selector: 'app-update-info',
-    templateUrl: './update_info.component.html'
+    selector: 'app-logs-snack-bar',
+    template: '{{ data.join(" ") }}'
 })
-export class UpdateInfoComponent {
-    
+export class LogsSnackBarComponent {
+    constructor(@Inject(MAT_SNACK_BAR_DATA) public data: string[]) { }
 }
 
 @Component({
@@ -16,11 +17,10 @@ export class UpdateInfoComponent {
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    public title = 'SPU'
-    public sources = [13, 12, 11, 9, 8]
-    public readonly targets = [14, 13, 12, 11, 9]
-    public availableTargets = this.targets
-    public disabledTargets: number[] = []
+    public readonly title = 'SPU'
+    public readonly versions = [14, 13, 12, 11, 9, 8]
+    public availableTargets = this.versions.slice(0, 1)
+    public disabledTargets = this.versions.slice(1, -1)
 
     public source = 13
     public target = 14
@@ -28,12 +28,12 @@ export class AppComponent {
     public input = ''
     public output = ''
 
-    public constructor(private snackBar: MatSnackBar) { }
+    public constructor(private snackBar: MatSnackBar, private aboutDialog: MatDialog) { }
 
     public changeSource(version: number) {
         this.source = version
-        this.availableTargets = this.targets.filter(v => v > version)
-        this.disabledTargets = this.targets.filter(v => v <= version)
+        this.availableTargets = this.versions.filter(v => v > version)
+        this.disabledTargets = this.versions.slice(0, -1).filter(v => v <= version)
 
         if (this.target <= this.source) {
             this.target = this.availableTargets.slice(-1)[0]
@@ -47,6 +47,16 @@ export class AppComponent {
     public update() {
         const result = spu.update(this.input.split(/\n/g), this.source, this.target)
         this.output = result.commands.join('\n')
-        this.snackBar.openFromComponent(UpdateInfoComponent, { duration: 3000 })
+
+        this.snackBar.openFromComponent(LogsSnackBarComponent,
+            { data: result.logs, duration: result.logs.join(' ').length * 50 })
+        console.log(result.logs)
+    }
+
+    public openAboutDialog() {
+        this.aboutDialog.open(AboutDialogComponent, {
+            height: '480px',
+            width: '720px',
+        })
     }
 }

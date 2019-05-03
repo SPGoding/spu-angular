@@ -1,27 +1,44 @@
-<mat-toolbar title="Spu Performs Updating">SPU</mat-toolbar>
+<mat-toolbar color="primary" title="Spu Performs Updating">
+    <button mat-icon-button [matMenuTriggerFor]="spuMenu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    {{title}}
+</mat-toolbar>
 
-<mat-button-toggle-group name="sources" aria-label="Source Versions">
-    <mat-button-toggle *ngFor="let version of sources" [value]="version" [checked]="version === source"
-        (click)="changeSource(version)">
-        1.{{version}}
-    </mat-button-toggle>
-</mat-button-toggle-group>
+<mat-menu #spuMenu="matMenu">
+    <button mat-menu-item>
+        <mat-icon>delete</mat-icon>Clear Cache
+    </button>
+    <button mat-menu-item (click)="openAboutDialog()">
+        <mat-icon>info</mat-icon>About
+    </button>
+</mat-menu>
 
-<button mat-raised-button (click)="update()">Update</button>
+<mat-card>
+    <div>
+        <mat-button-toggle-group name="sources" aria-label="Source Versions">
+            <mat-button-toggle *ngFor="let version of versions.slice(1)" [value]="version"
+                [checked]="version === source" (click)="changeSource(version)">
+                1.{{version}}
+            </mat-button-toggle>
+        </mat-button-toggle-group>
 
-<mat-button-toggle-group name="targets" aria-label="Target Versions">
-    <mat-button-toggle *ngFor="let version of availableTargets" [value]="version" [checked]="version === target"
-        (click)="changeTarget(version)">
-        1.{{version}}
-    </mat-button-toggle>
-    <mat-button-toggle *ngFor="let version of disabledTargets" [value]="version" disabled>
-        1.{{version}}
-    </mat-button-toggle>
-</mat-button-toggle-group>
-<br />
-<textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="12"
-    placeholder="Input command(s)" [(ngModel)]="input"></textarea>
-<textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="4" cdkAutosizeMaxRows="12" placeholder="Output command(s)"
-    readonly [ngModel]="output"></textarea>
-<br />
-{{source}} -> {{target}}
+        <button mat-raised-button color="primary" class="update-button" (click)="update()">Update</button>
+
+        <mat-button-toggle-group name="targets" aria-label="Target Versions">
+            <mat-button-toggle *ngFor="let version of availableTargets" [value]="version" [checked]="version === target"
+                (click)="changeTarget(version)">
+                1.{{version}}
+            </mat-button-toggle>
+            <mat-button-toggle *ngFor="let version of disabledTargets" [value]="version" disabled>
+                1.{{version}}
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+    <div>
+        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="8" cdkAutosizeMaxRows="24" cols="48"
+            placeholder="Input command(s)" [(ngModel)]="input"></textarea>
+        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="8" cdkAutosizeMaxRows="24" cols="48"
+            placeholder="Output command(s)" readonly [ngModel]="output"></textarea>
+    </div>
+</mat-card>

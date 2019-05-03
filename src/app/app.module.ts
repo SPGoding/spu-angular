@@ -2,13 +2,19 @@ import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 
-import { AppComponent } from './app.component'
+import { AppComponent, LogsSnackBarComponent } from './app.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatButtonModule, MatButtonToggleModule, MatInputModule, MatSnackBarModule, MatToolbarModule } from '@angular/material'
+import {
+    MatButtonModule, MatButtonToggleModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule,
+    MatMenuModule, MatSnackBarModule, MatToolbarModule
+} from '@angular/material';
+import { AboutDialogComponent } from './about-dialog/about-dialog.component'
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        LogsSnackBarComponent,
+        AboutDialogComponent
     ],
     imports: [
         BrowserModule,
@@ -16,11 +22,19 @@ import { MatButtonModule, MatButtonToggleModule, MatInputModule, MatSnackBarModu
         FormsModule,
         MatButtonModule,
         MatButtonToggleModule,
+        MatCardModule,
+        MatDialogModule,
+        MatIconModule,
         MatInputModule,
+        MatMenuModule,
         MatSnackBarModule,
         MatToolbarModule
     ],
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [
+        LogsSnackBarComponent,
+        AboutDialogComponent
+    ]
 })
 export class AppModule { }
