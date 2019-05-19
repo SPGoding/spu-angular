@@ -36,9 +36,16 @@
         </mat-button-toggle-group>
     </div>
     <div>
-        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="8" cdkAutosizeMaxRows="24" cols="36"
-            placeholder="Input command(s)" [(ngModel)]="input"></textarea>
-        <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="8" cdkAutosizeMaxRows="24" cols="36"
-            placeholder="Output command(s)" readonly [ngModel]="output"></textarea>
+        <mat-form-field>
+            <mat-label>Input command(s)</mat-label>
+            <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="8" cdkAutosizeMaxRows="24" cols="36" wrap="off"
+                [(ngModel)]="input"></textarea>
+            <mat-hint>Command(s) need to be updated.</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Output command(s)</mat-label>
+            <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="8" cdkAutosizeMaxRows="24" cols="36" wrap="off"
+                readonly [ngModel]="output"></textarea>
+        </mat-form-field>
     </div>
 </mat-card>

@@ -6,7 +6,7 @@ import { AppComponent, LogsSnackBarComponent } from './app.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {
     MatButtonModule, MatButtonToggleModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule,
-    MatMenuModule, MatSnackBarModule, MatToolbarModule
+    MatMenuModule, MatSnackBarModule, MatToolbarModule, MatFormFieldModule
 } from '@angular/material'
 import { AboutDialogComponent } from './about-dialog/about-dialog.component'
 
@@ -24,6 +24,7 @@ import { AboutDialogComponent } from './about-dialog/about-dialog.component'
         MatButtonToggleModule,
         MatCardModule,
         MatDialogModule,
+        MatFormFieldModule,
         MatIconModule,
         MatInputModule,
         MatMenuModule,

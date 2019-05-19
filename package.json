@@ -5,7 +5,7 @@
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build --prod --base-href \"https://spu.spgoding.com/\"",
-        "deploy": "npm build && npx ngh --dir=dist/spu-angular --cname=spu.spgoding.com",
+        "deploy": "npx ngh --dir=dist/spu-angular --cname=spu.spgoding.com",
         "test": "echo \"idk why it will fail :(\"",
         "lint": "ng lint",
         "e2e": "ng e2e"

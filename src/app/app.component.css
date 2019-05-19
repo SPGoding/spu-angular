@@ -4,11 +4,17 @@ mat-card {
     text-align: center;
 }
 
-textarea {
+mat-form-field {
     margin: 8px;
     margin-bottom: 0;
     min-width: 40%;
     max-width: 80%;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace
+}
+
+textarea {
+    width: 100%;
     font-size: 16px;
     font-family: 'Courier New', Courier, monospace
 }
