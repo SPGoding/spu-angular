@@ -25,6 +25,9 @@ jobs:
       - run:
           name: Build
           command: npm run build
+      - add_ssh_keys:
+          fingerprints:
+            - "27:33:15:d3:fd:f6:48:43:f6:b2:1b:d0:05:6c:e7:cd"
       - run: 
           name: Deploy
           command: |
