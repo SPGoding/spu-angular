@@ -3,9 +3,10 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
+        "commit": "gitmoji -c",
         "start": "ng serve",
         "build": "ng build --prod --base-href \"https://spu.spgoding.com/\"",
-        "deploy": "npx ngh --dir=dist/spu-angular --cname=spu.spgoding.com",
+        "deploy": "npx ngh --dir=dist/spu-angular --message=\":rocket: Deploy to GitHub Pages.\" --cname=spu.spgoding.com --name=SPGoding --email=SPGoding@outlook.com",
         "test": "echo \"idk why it will fail :(\"",
         "lint": "ng lint",
         "e2e": "ng e2e"
@@ -22,10 +23,10 @@
         "@angular/platform-browser": "^7.2.15",
         "@angular/platform-browser-dynamic": "^7.2.15",
         "@angular/router": "^7.2.15",
-        "core-js": "^2.5.4",
+        "core-js": "^2.6.9",
         "hammerjs": "^2.0.8",
         "rxjs": "~6.3.3",
-        "spu": "^1.2.8",
+        "spu": "^1.3.2",
         "tslib": "^1.9.0",
         "zone.js": "~0.8.26"
     },
@@ -39,6 +40,7 @@
         "@types/node": "~8.9.4",
         "angular-cli-ghpages": "^0.5.3",
         "codelyzer": "~4.5.0",
+        "gitmoji-cli": "^1.9.2",
         "jasmine-core": "~2.99.1",
         "jasmine-spec-reporter": "~4.2.1",
         "karma": "~4.0.0",
