@@ -6,6 +6,9 @@
 </mat-toolbar>
 
 <mat-menu #spuMenu="matMenu">
+    <button mat-menu-item (click)="switchLanguage()">
+        <mat-icon>language</mat-icon>{{language.switchLanguage}}
+    </button>
     <button mat-menu-item (click)="clearCache()">
         <mat-icon>delete</mat-icon>{{language.clearCache}}
     </button>

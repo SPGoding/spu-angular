@@ -7,7 +7,7 @@
         "start": "ng serve",
         "build": "ng build --prod --base-href \"https://spu.spgoding.com/\"",
         "watch": "ng build --watch --base-href \"./dist\"",
-        "deploy": "npx ngh --dir=dist/spu-angular --message=':rocket: Deploy to GitHub Pages. [skip CI]' --cname=spu.spgoding.com",
+        "deploy": "npx ngh --dir dist/spu-angular --message \":rocket: Deploy to GitHub Pages. [skip CI]\" --cname spu.spgoding.com",
         "test": "echo \"idk why it will fail :(\"",
         "lint": "ng lint",
         "e2e": "ng e2e"

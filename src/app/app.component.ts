@@ -30,7 +30,8 @@ export class AppComponent implements OnInit {
             inputTitle: 'Input command(s)',
             inputDescription: 'Command(s) need to be updated.',
             outputTitle: 'Output command(s)',
-            cacheCleared: 'Cleared cache.'
+            cacheCleared: 'Cleared cache.',
+            switchLanguage: 'Switch Language'
         },
         'zh-CN': {
             clearCache: '清除缓存',
@@ -39,7 +40,8 @@ export class AppComponent implements OnInit {
             inputTitle: '输入命令',
             inputDescription: '将被升级的命令。',
             outputTitle: '输出命令',
-            cacheCleared: '已清除缓存。'
+            cacheCleared: '已清除缓存。',
+            switchLanguage: '切换语言'
         },
         'zh-TW': {
             clearCache: '清除緩存',
@@ -48,7 +50,8 @@ export class AppComponent implements OnInit {
             inputTitle: '輸入命令',
             inputDescription: '欲升級的命令。',
             outputTitle: '輸出命令',
-            cacheCleared: '已清除緩存。'
+            cacheCleared: '已清除緩存。',
+            switchLanguage: '切換語言'
         }
     }
 
@@ -69,10 +72,20 @@ export class AppComponent implements OnInit {
         if (['en', 'zh-CN', 'zh-TW'].indexOf(lang) === -1) {
             lang = 'en'
         }
-        window.localStorage.setItem('lang', lang)
-        this.language = this.languages[lang]
+        this.changeLang(lang)
         // input
         this.input = window.localStorage.getItem('input') || ''
+        // source
+        const source = window.localStorage.getItem('source') || '13'
+        this.changeSource(parseInt(source, 10))
+        // target
+        const target = window.localStorage.getItem('target') || '13'
+        this.changeTarget(parseInt(target, 10))
+    }
+
+    private changeLang(lang: string) {
+        window.localStorage.setItem('lang', lang)
+        this.language = this.languages[lang]
     }
 
     public changeSource(version: number) {
@@ -80,13 +93,17 @@ export class AppComponent implements OnInit {
         this.availableTargets = this.versions.filter(v => v > version)
         this.disabledTargets = this.versions.slice(0, -1).filter(v => v <= version)
 
+        window.localStorage.setItem('source', this.source.toString())
+
         if (this.target <= this.source) {
-            this.target = this.availableTargets.slice(-1)[0]
+            this.changeTarget(this.availableTargets.slice(-1)[0])
+            window.localStorage.setItem('target', this.target.toString())
         }
     }
 
     public changeTarget(version: number) {
         this.target = version
+        window.localStorage.setItem('target', this.target.toString())
     }
 
     public update() {
@@ -101,6 +118,18 @@ export class AppComponent implements OnInit {
     public clearCache() {
         window.localStorage.clear()
         this.snackBar.open(this.language.cacheCleared, undefined, { duration: this.language.cacheCleared.length * 50 })
+    }
+
+    public switchLanguage() {
+        let lang: string
+        if (this.language === this.languages.en) {
+            lang = 'zh-CN'
+        } else if (this.language === this.languages['zh-CN']) {
+            lang = 'zh-TW'
+        } else {
+            lang = 'en'
+        }
+        this.changeLang(lang)
     }
 
     public openAboutDialog() {

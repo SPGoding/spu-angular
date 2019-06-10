@@ -80,6 +80,9 @@
         "semicolon": [
             true,
             "never"
+        ],
+        "radix": [
+            false
         ]
     }
 }
