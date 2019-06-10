@@ -6,11 +6,11 @@
 </mat-toolbar>
 
 <mat-menu #spuMenu="matMenu">
-    <button mat-menu-item>
-        <mat-icon>delete</mat-icon><ng-container i18n="@@clearCache">Clear Cache</ng-container>
+    <button mat-menu-item (click)="clearCache()">
+        <mat-icon>delete</mat-icon>{{language.clearCache}}
     </button>
     <button mat-menu-item (click)="openAboutDialog()">
-        <mat-icon>info</mat-icon><ng-container i18n="@@about">About</ng-container>
+        <mat-icon>info</mat-icon>{{language.about}}
     </button>
 </mat-menu>
 
@@ -23,7 +23,7 @@
             </mat-button-toggle>
         </mat-button-toggle-group>
 
-        <button mat-raised-button color="primary" class="update-button" (click)="update()" i18n="@@update">Update</button>
+        <button mat-raised-button color="primary" class="update-button" (click)="update()">{{language.update}}</button>
 
         <mat-button-toggle-group name="targets" aria-label="Target Versions">
             <mat-button-toggle *ngFor="let version of availableTargets" [value]="version" [checked]="version === target"
@@ -37,13 +37,13 @@
     </div>
     <div>
         <mat-form-field>
-            <mat-label i18n="@@inputTitle">Input command(s)</mat-label>
+            <mat-label>{{language.inputTitle}}</mat-label>
             <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="8" cdkAutosizeMaxRows="24" cols="36" wrap="off"
                 [(ngModel)]="input"></textarea>
-            <mat-hint i18n="@@inputDescription">Command(s) need to be updated.</mat-hint>
+            <mat-hint>{{language.inputDescription}}</mat-hint>
         </mat-form-field>
         <mat-form-field>
-            <mat-label i18n="@@outputTitle">Output command(s)</mat-label>
+            <mat-label>{{language.outputTitle}}</mat-label>
             <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="8" cdkAutosizeMaxRows="24" cols="36" wrap="off"
                 readonly [ngModel]="output"></textarea>
         </mat-form-field>
