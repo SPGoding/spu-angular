@@ -8,3 +8,25 @@
 A website created with [Angular](https://angular.io/) to help you update Minecraft Commands.
 
 The updating is based on NPM package [spu](https://npmjs.com/package/spu) ([GitHub](https://github.com/SPGoding/spu)) which is also created by me.
+
+## Author
+
+- @SPGoding ([GitHub](https://github.com/SPGoding) [MCBBS](http://www.mcbbs.net/?2444378) [爱发电](https://afdian.net/@SPGoding))
+
+## Contributors
+
+- @langyo ([GitHub](https://github.com/langyo) [MCBBS](http://www.mcbbs.net/?1287472) [爱发电](https://afdian.net/@langyo))
+- @pca006132 ([GitHub](https://github.com/pca006132) [MCBBS](http://www.mcbbs.net/?193048))
+
+## Donators (Sorted by time)
+
+- @uuu2011
+- @switefaster
+- @Craft_Kevin
+- @龙腾猫跃
+- @火星浮云
+- @PutEgg
+- @甘小蔗是谁啊
+- @陌余Oucher
+- @虫小哥
+- @爱发电用户_4vCR
