@@ -30,3 +30,4 @@ The updating is based on NPM package [spu](https://npmjs.com/package/spu) ([GitH
 - @陌余Oucher
 - @虫小哥
 - @爱发电用户_4vCR
+- @shen_ke
