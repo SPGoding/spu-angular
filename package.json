@@ -19,7 +19,7 @@
         "@angular/common": "^9.0.0",
         "@angular/compiler": "^9.0.0",
         "@angular/core": "^8.0.2",
-        "@angular/forms": "^8.0.2",
+        "@angular/forms": "^9.0.0",
         "@angular/material": "^8.0.1",
         "@angular/platform-browser": "^8.0.2",
         "@angular/platform-browser-dynamic": "^8.0.2",
