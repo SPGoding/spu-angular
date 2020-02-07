@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core'
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog'
+import { MatSnackBar, MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar'
 import * as spu from 'spu'
 import { AboutDialogComponent } from './about-dialog/about-dialog.component'
 

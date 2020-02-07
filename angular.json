@@ -134,5 +134,8 @@
       }
     }
   },
-  "defaultProject": "spu-angular"
+  "defaultProject": "spu-angular",
+  "cli": {
+    "analytics": "30772b94-5166-40d3-b1af-95cc3531b6b2"
+  }
 }
